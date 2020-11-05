@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  background-color: rgb(71, 71, 71);
+  font-family: "Courier New", Courier, monospace;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: left; */
+  width: 30%;
+}
+
+.info-container {
+  color: rgb(7, 255, 19);
+  text-align: left;
+  width: 200px;
+  z-index: 0;
+}
+
+canvas {
+  /* positioned in screen center: */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 0 0 0;
+  /* height: ..px; and width: ..px; are set in JS script*/
+  z-index: 0;
+}
+
+#canvas-container {
+  height: 96%;
+  /* width: 50%; */
+  padding: 10px 0 10px 0;
+}
+
+.game-over-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 700px;
+  background-color: rgb(56, 56, 56);
+  margin-top: -4px;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+}
+
+button {
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  background-color: rgb(195, 195, 195);
+  border: none;
+  height: 50px;
+  width: 200px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+button:hover {
+  filter: brightness(80%);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Montior and Larger */
+@media screen and (min-width: 1800px) {
+  canvas {
+    margin-top: 100px;
+  }
+
+  .game-over-container {
+    margin-top: -19px;
+  }
+}
+
+/* Large Smartphone (Vertical) */
+@media screen and (max-width: 500px) {
+  canvas {
+    width: 100%;
+    height: 600px;
+    margin-top: 50px;
+  }
+
+  .game-over-container {
+    width: 100%;
+    height: 600px;
+  }
+}
