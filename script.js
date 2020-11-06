@@ -1,5 +1,6 @@
 // Canvas
 const { body } = document;
+const canvasBody = document.getElementById('canvas-body');
 // const canvas = document.createElement('canvas');
 const canvas = document.getElementById('canvas-container');
 const context = canvas.getContext('2d');
@@ -89,7 +90,8 @@ function renderCanvas() {
 function createCanvas() {
   canvas.width = width;
   canvas.height = height;
-  body.appendChild(canvas);
+  // body.appendChild(canvas);
+  canvasBody.appendChild(canvas);
   renderCanvas();
 }
 

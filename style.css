@@ -6,9 +6,9 @@ body {
 
 .container {
   display: flex;
-  flex-direction: row;
-  /* justify-content: left; */
-  width: 30%;
+  flex-direction: column-reverse;
+  justify-content: left;
+  padding-left: 6px;
 }
 
 .info-container {
@@ -24,11 +24,18 @@ canvas {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  margin: 0 0 0 0;
+  margin: 5px 0 0 0;
   /* height: ..px; and width: ..px; are set in JS script*/
   z-index: 0;
 }
 
+#canvas-body {
+  color: #52f3e4;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
 #canvas-container {
   height: 96%;
   /* width: 50%; */
