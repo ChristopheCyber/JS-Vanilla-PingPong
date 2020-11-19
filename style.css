@@ -27,6 +27,9 @@ canvas {
   margin: 5px 0 0 0;
   /* height: ..px; and width: ..px; are set in JS script*/
   z-index: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 #canvas-body {

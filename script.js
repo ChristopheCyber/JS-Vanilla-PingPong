@@ -7,8 +7,9 @@ const context = canvas.getContext('2d');
 // canvas dimensions settings:
 const width = 500;
 const height = 700;
-const screenWidth = window.screen.width;
-const canvasPosition = screenWidth / 2 - width / 2;
+// initial screen resolution:
+var screenWidth = window.screen.width;
+var canvasPosition = screenWidth / 2 - width / 2;
 const isMobile = window.matchMedia('(max-width: 600px)');
 const gameOverEl = document.createElement('div');
 
@@ -229,7 +230,18 @@ function startGame() {
   ballReset();
   createCanvas();
   animate();
+  
+  /* console.log('window.screen.width=',window.screen.width);
+  console.log('document.documentElement.clientWidth=',document.documentElement.clientWidth);
+  console.log('document.documentElement.offsetWidth=',document.documentElement.offsetWidth);
+  console.log('document.documentElement=',document.documentElement);
+  console.log('document.body=\n',document.body); */
   canvas.addEventListener('mousemove', (e) => {
+    // console.log('mousemove => document.documentElement.clientWidth=',document.documentElement.clientWidth);
+    // in case of resizing Browser window => different ViewPort
+    screenWidth = document.documentElement.clientWidth;
+    canvasPosition = screenWidth / 2 - width / 2;
+    
     playerMoved = true;
     // Compensate for canvas being centered
     paddleBottomX = e.clientX - canvasPosition - paddleDiff;
