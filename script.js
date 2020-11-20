@@ -47,7 +47,8 @@ if (isMobile.matches) {
 // Score
 let playerScore = 0;
 let computerScore = 0;
-const winningScore = 7;
+// number of rounds:
+const winningScore = 3;
 let isGameOver = true;
 let isNewGame = true;
 
@@ -189,7 +190,7 @@ function showGameOverEl(winner) {
   // Button
   const playAgainBtn = document.createElement('button');
   playAgainBtn.setAttribute('onclick', 'startGame()');
-  playAgainBtn.textContent = 'Play Again';
+  playAgainBtn.textContent = 'Play Another Round';
   // Append
   gameOverEl.append(title, playAgainBtn);
   body.appendChild(gameOverEl);
