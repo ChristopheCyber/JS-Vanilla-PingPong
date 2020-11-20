@@ -71,11 +71,11 @@ canvas {
 
 button {
   cursor: pointer;
-  color:rgb(15, 255, 11);
-  text-shadow: 2px 2px 1px rgb(0, 0, 0);
+  color:rgb(255, 255, 255);
+  text-shadow: 2.5px 2.2px 0.5px rgb(0, 0, 0);
   background-color: rgb(12, 200, 230);
   border: 1.5px solid #018e2b;
-  box-shadow: 2px 2px 2px rgb(123, 123, 123);
+  box-shadow: 2px 2px 2px rgb(15, 190, 12);
   height: 50px;
   width: 215px;
   border-radius: 10px;
