@@ -53,19 +53,17 @@ const winningScore = 3;
 let isGameOver = true;
 let isNewGame = true;
 
-/// canvas background
-const image1 = document.getElementById('imgSource');
+// canvas Game background
+const imageGame = document.getElementById('imgSourceGame');
 
 // Render Everything on Canvas
 function renderCanvas() {
   // Canvas Background color filling :
-  /* context.fillRect(0, 0, width, height);
-  context.fillStyle = 'black'; */
   context.fillRect(0, 0, width, height);
-  context.fillStyle = 'rgb(0, 248, 255)'; 
+  context.fillStyle = 'rgb(0, 248, 255)';
 
-  /// canvas background image filling :
-  context.drawImage(image1, 0, 0, 1000, 1778, 0, 0, 500, 800);
+  // canvas background Game image filling :
+  context.drawImage(imageGame, 0, 0, 1618, 2158, -40, 0, 550, 765);
 
   /*
   window.onload = function() {
@@ -76,29 +74,34 @@ function renderCanvas() {
   };
   */
 
-  // Player Paddle (Bottom)
-  context.fillRect(paddleBottomX, height - 20, paddleWidth, paddleHeight);
-
   // Computer Paddle (Top)
+  context.fillStyle = 'rgb(175, 11, 11)';
   context.fillRect(paddleTopX, 10, paddleWidth, paddleHeight);
+
+  // Player Paddle (Bottom)
+  context.fillStyle = 'rgb(7, 255, 19)';
+  context.fillRect(paddleBottomX, height - 20, paddleWidth, paddleHeight);
 
   // Dashed Center Line
   context.beginPath();
-  context.setLineDash([4]);
+  context.setLineDash([5]);
   context.moveTo(0, 350);
   context.lineTo(500, 350);
-  context.strokeStyle = 'grey';
+  context.strokeStyle = 'rgb(7, 255, 19)';
   context.stroke();
 
   // Ball
   context.beginPath();
   context.arc(ballX, ballY, ballRadius, 2 * Math.PI, false);
   context.fillStyle = 'rgb(7, 255, 19)';
+  // context.fillStyle = 'red';
   context.fill();
 
   // Score
-  context.font = '32px Courier New';
+  context.fillStyle = 'rgb(7, 255, 19)';
+  context.font = 'bold 33px Courier New';
   context.fillText(playerScore, 20, canvas.height / 2 + 50);
+  context.fillStyle = 'red';
   context.fillText(computerScore, 20, canvas.height / 2 - 30);
 
 }
@@ -197,12 +200,13 @@ function computerAI() {
 function showGameOverEl(winner) {
   // Hide Canvas
   canvas.hidden = true;
+  canvas.style.display="none";
   // Container
   gameOverEl.textContent = '';
   gameOverEl.classList.add('game-over-container');
   // Title
   const title = document.createElement('h1');
-  title.textContent = `${winner} Wins!`;
+  title.textContent = `${winner} !`;
   // Button
   const playAgainBtn = document.createElement('button');
   playAgainBtn.setAttribute('onclick', 'startGame()');
@@ -217,7 +221,7 @@ function gameOver() {
   if (playerScore === winningScore || computerScore === winningScore) {
     isGameOver = true;
     // Set Winner
-    const winner = playerScore === winningScore ? 'Player 1' : 'Computer';
+    const winner = playerScore === winningScore ? 'You Win' : 'Computer Wins';
     showGameOverEl(winner);
   }
 }
@@ -239,6 +243,7 @@ function startGame() {
   if (isGameOver && !isNewGame) {
     body.removeChild(gameOverEl);
     canvas.hidden = false;
+    canvas.style.display="block";
   }
   isGameOver = false;
   isNewGame = false;

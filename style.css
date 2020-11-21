@@ -1,6 +1,9 @@
 body {
   margin: 0;
   background-color: rgb(71, 71, 71);
+  background-image: url("./assets/spaceBattle.jpg");
+  background-size: 100%;
+  background-position: top center;
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -52,7 +55,13 @@ canvas {
   transform: translate(-50%, -50%);
   width: 500px;
   height: 700px;
-  background-color: rgb(56, 56, 56);
+
+  background-image: url("./assets/faceDohArkanoid.png");
+  background-size: cover;
+  /* background-position: top center; */
+  background-position: 10px 65px;
+  background-repeat: no-repeat;
+
   margin-top: -4px;
   z-index: 2;
   display: flex;
