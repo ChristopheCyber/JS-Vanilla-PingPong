@@ -13,6 +13,7 @@ var canvasPosition = screenWidth / 2 - width / 2;
 const isMobile = window.matchMedia('(max-width: 600px)');
 const gameOverEl = document.createElement('div');
 
+
 // Paddle
 const paddleHeight = 10;
 const paddleWidth = 50;
@@ -52,15 +53,28 @@ const winningScore = 3;
 let isGameOver = true;
 let isNewGame = true;
 
+/// canvas background
+const image1 = document.getElementById('imgSource');
+
 // Render Everything on Canvas
 function renderCanvas() {
-  // Canvas Background
-  context.fillStyle = 'black';
+  // Canvas Background color filling :
+  /* context.fillRect(0, 0, width, height);
+  context.fillStyle = 'black'; */
   context.fillRect(0, 0, width, height);
+  context.fillStyle = 'rgb(0, 248, 255)'; 
 
-  // Paddle Color
-  // context.fillStyle = 'white';
-  context.fillStyle = 'rgb(0, 248, 255)';
+  /// canvas background image filling :
+  context.drawImage(image1, 0, 0, 1000, 1778, 0, 0, 500, 800);
+
+  /*
+  window.onload = function() {
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  var img = document.getElementById("scream");
+  ctx.drawImage(img, 10, 10);
+  };
+  */
 
   // Player Paddle (Bottom)
   context.fillRect(paddleBottomX, height - 20, paddleWidth, paddleHeight);
@@ -86,12 +100,14 @@ function renderCanvas() {
   context.font = '32px Courier New';
   context.fillText(playerScore, 20, canvas.height / 2 + 50);
   context.fillText(computerScore, 20, canvas.height / 2 - 30);
+
 }
 
 // Create Canvas Element
 function createCanvas() {
   canvas.width = width;
   canvas.height = height;
+
   // body.appendChild(canvas);
   canvasBody.appendChild(canvas);
   renderCanvas();
@@ -231,7 +247,7 @@ function startGame() {
   ballReset();
   createCanvas();
   animate();
-  
+
   /* console.log('window.screen.width=',window.screen.width);
   console.log('document.documentElement.clientWidth=',document.documentElement.clientWidth);
   console.log('document.documentElement.offsetWidth=',document.documentElement.offsetWidth);
@@ -242,7 +258,7 @@ function startGame() {
     // in case of resizing Browser window => different ViewPort
     screenWidth = document.documentElement.clientWidth;
     canvasPosition = screenWidth / 2 - width / 2;
-    
+
     playerMoved = true;
     // Compensate for canvas being centered
     paddleBottomX = e.clientX - canvasPosition - paddleDiff;
